@@ -18,9 +18,10 @@ serInput="${userInput:1}"
 echo $serInput
 
 
-if [[ "$firstLetter" != "a" || "$firstLetter" != "e" || "$firstLetter" != "i" || "$firstLetter" != "o" || "$firstLetter" != "u" ]];then
+if [[ "$firstLetter" != *[aeiou]* ]];then
 	latin=$serInput$firstLetter"ay"
 	echo $latin
 else
-	echo You typed a vowel
+	latin=$userInput"way"
+	echo $latin
 fi
