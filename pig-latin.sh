@@ -5,38 +5,19 @@
 
 #prompt for user input and line to record user input
 echo "Please write a line to be translated to pig-latin"
-read userInput
+#read userInput
+userInput="mike is a fool"	#for test purposes
 
-#test input is reading properly
-echo $userInput
+userArray=( $userInput )
 
-#this is how to get first letter
-firstLetter=${userInput:0:1}
-echo $firstLetter
+for i in userArray
+	do
+		[[ ${userArray[$i]} | grep ^[aeiou] ]]
+		if [$?==1];then
+			userArray[$i]="vowel"
+		fi
+	done
 
-#this is how to remove first letter
-serInput="${userInput:1}"
-echo $serInput
+printf '%s ' "${userArray[*]}"
 
-# This code block uses grep to find vowels and uses the boolean result of grep to apply logic
-#echo $firstLetter | grep "^[aeiou]"
-#if [ $? = 0 ];then
-#	echo vowel
-#else
-#	echo constanant
-#fi
-
-# This code block copares firstLetter to a glob and then applies logic
-if [[ "$firstLetter" != *[aeiou]* ]];then
-	latin=$serInput$firstLetter"ay"
-	echo $latin
-else
-	latin=$userInput"way"
-	echo $latin
-fi
-
-#userArray=${userInput// /$'\n'}
-#for word in $userArray
-#do
-#	echo "$word"
-#done
+echo
