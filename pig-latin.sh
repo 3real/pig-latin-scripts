@@ -1,23 +1,34 @@
 #!/usr/bin/env bash
 
 #Use set -x to run line by line for debugging
-#set -x
+set -x
 
 #prompt for user input and line to record user input
 echo "Please write a line to be translated to pig-latin"
 #read userInput
-userInput="mike is a fool"	#for test purposes
+userInput="a mike is a fool"	#for test purposes
 
 userArray=( $userInput )
 
-for i in userArray
+pigArray=("${userArray[@]}")
+
+igArray=("${userArray[@]}")
+
+arraylength=${#userArray[@]}
+
+for (( i=0; i<${arraylength}; i++ ));
 	do
-		[[ ${userArray[$i]} | grep ^[aeiou] ]]
-		if [$?==1];then
-			userArray[$i]="vowel"
+		echo "${userArray[$i]:0:1}" | grep "^[aeiou]"
+		if [ $? = 0 ];then
+			igArray[$i]="${userArray[$i]}way"
+
+		else
+			pigArray[$i]="${userArray[$i]}${userArray[$i]:0:1}ay"
+			igArray[$i]="${pigArray[$i]:1}"
+
 		fi
 	done
 
-printf '%s ' "${userArray[*]}"
+printf '%s ' "${igArray[@]}"
 
 echo
