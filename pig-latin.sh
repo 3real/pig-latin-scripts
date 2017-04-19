@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 #Use set -x to run line by line for debugging
-set -x
+#set -x
 
 #prompt for user input and line to record user input
 echo "Please write a line to be translated to pig-latin"
@@ -35,8 +35,8 @@ else
 	echo $latin
 fi
 
-userArray=${userInput// /$'\n'}
-for word in $userArray
-do
-	echo "$word"
-done
+#userArray=${userInput// /$'\n'}
+#for word in $userArray
+#do
+#	echo "$word"
+#done
