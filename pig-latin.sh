@@ -1,12 +1,12 @@
 #!/usr/bin/env bash
 
 #Use set -x to run line by line for debugging
-set -x
+#set -x
 
 #prompt for user input and line to record user input
 echo "Please write a line to be translated to pig-latin"
-#read userInput
-userInput="a mike is a fool"	#for test purposes
+read userInput
+#userInput="a mike is a fool"	#for test purposes
 
 userArray=( $userInput )
 
